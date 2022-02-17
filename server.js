@@ -68,6 +68,19 @@ function genratelog(){
 }
 genratelog();
 
+function hello(){
+  try{
+    app.get('/v1/hello', (req, res) => {
+      console.log("Hello");
+      res.send("hello").status(200);
+      res.end();
+    })
+  }catch(error){
+    
+  }
+}
+hello();
+
 
 let port = 5000;
 
