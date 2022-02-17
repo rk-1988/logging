@@ -1,0 +1,7 @@
+default:
+  server:
+    port: 8000
+    cluster: false
+  logs:
+    dir: logs
+    level: debug
