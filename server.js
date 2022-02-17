@@ -81,6 +81,19 @@ function hello(){
 }
 hello();
 
+function hello2(){
+  try{
+    app.get('/v1/hello', (req, res) => {
+      console.log("Hello");
+      res.send("hello2").status(200);
+      res.end();
+    })
+  }catch(error){
+    
+  }
+}
+hello2();
+
 
 let port = 5000;
 
