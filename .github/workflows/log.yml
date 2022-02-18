@@ -24,3 +24,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - run: npm run build --if-present
+      - name: Deploy to Cloud Foundry
+        #uses: jhunt/cf-push@v1
+        with: 
+          api:      ${{ secrets.CF_API }}
+          org:      ${{ secrets.CF_ORG }}
+          space:    ${{ secrets.CF_SPACE }}
+          username: ${{ secrets.CF_USERNAME }}
+          password: ${{ secrets.CF_PASSWORD }}
+          manifest: manifest.yml
+          validate: false
