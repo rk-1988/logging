@@ -7,8 +7,8 @@ if [ "x${INPUT_VALIDATE}" = "xfalse" ]; then
 fi
 cf api ${INPUT_API} ${cf_opts}
 CF_USERNAME=${INPUT_USERNAME} CF_PASSWORD=${INPUT_PASSWORD} cf auth
-cf target -o ${INPUT_ORG} -s ${INPUT_SPACE}
-cf push -f ${INPUT_MANIFEST}
+cf8 target -o ${INPUT_ORG} -s ${INPUT_SPACE}
+cf8 push -f ${INPUT_MANIFEST}
 
 #starting cf8 cli
 sh -c "cf8 $*"   
