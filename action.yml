@@ -1,25 +1,64 @@
 name: "CF CLI Action"
 description: "Deploy and manage Cloud Foundry using the cf cli"
 
+name: 'CF Push cli8'
+description: Push an application to a Cloud Foundry
 inputs:
-  cf_api:
-    description: "Target API Endpoint of Cloud Foundry"
+  manifest:
+    description: The path to your CF application manifest
     required: true
-  cf_username:
-    description: "Username for API authentication"
+  appdir:
+    description: Set this parameter if you want to switch the working dir to push an app
     required: true
-  cf_password:
-    description: "Password for API authentication"
+  API:
+    description: The Cloud Foundry API endpoint
     required: true
-  cf_org:
-    description: "Target Organization"
+  USERNAME:
+    description: Your Cloud Foundry authentication username (or email address)
+    required: true
+  PASSWORD:
+    description: Your Cloud Foundry authentication password
+    required: true
+  ORG:
+    description: The name of the Cloud Foundry organization in which to deploy
+    required: true
+  SPACE:
+    description: The name of the Cloud Foundry space in which to deploy
+    required: true
+  validate:
+    description: Whether or not to validate the CF API's TLS certificate
     required: false
-  cf_space:
-    description: "Target Space"
+    default: true
+  debug:
+    description: Debug your deploy dir to list all folders
     required: false
+    default: false
   command:
     description: "Command to run using CF CLI"
     required: true
+
+
+
+
+#inputs:
+ # cf_api:
+  #  description: "Target API Endpoint of Cloud Foundry"
+   # required: true
+  #cf_username:
+   # description: "Username for API authentication"
+    #required: true
+  #cf_password:
+   # description: "Password for API authentication"
+    #required: true
+  #cf_org:
+   # description: "Target Organization"
+   # required: false
+ # cf_space:
+  #  description: "Target Space"
+   # required: false
+  #command:
+   # description: "Command to run using CF CLI"
+    #required: true
 runs:
   using: "docker"
   image: "Dockerfile"
