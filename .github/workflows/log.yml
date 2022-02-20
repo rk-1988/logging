@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps: 
-      - uses: rk-1988/logging@master
+      - uses: Vishwastp89/CF@latest
         name: deploy in cf
         with: 
           api:      ${{ secrets.CF_API }}
