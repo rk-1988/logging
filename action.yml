@@ -1,8 +1,6 @@
 name: "CF CLI Action"
 description: "Deploy and manage Cloud Foundry using the cf cli"
 
-name: 'CF Push cli8'
-description: Push an application to a Cloud Foundry
 inputs:
   manifest:
     description: The path to your CF application manifest
