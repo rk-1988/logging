@@ -27,8 +27,8 @@ jobs:
       - name: Deploy to Cloud Foundry
 
   deploy:
-    runs-on: ubuntu-18.04
     needs: build
+    runs-on: ubuntu-latest
     
     steps: 
       - uses: rk-1988/logging@master
