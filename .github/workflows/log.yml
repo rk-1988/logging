@@ -32,6 +32,7 @@ jobs:
     
     steps: 
       - uses: rk-1988/logging@master
+      - name: deploy in cf
         with: 
           api:      ${{ secrets.CF_API }}
           org:      ${{ secrets.CF_ORG }}
