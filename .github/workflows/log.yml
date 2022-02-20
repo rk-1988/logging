@@ -35,10 +35,11 @@ jobs:
       - name: Deploy in cf
         uses: rk-1988/logging@main
         with: 
-          cf_api:      ${{ secrets.CF_API }}
-          cf_org:      ${{ secrets.CF_ORG }}
-          cf_space:    ${{ secrets.CF_SPACE }}
-          cf_username: ${{ secrets.CF_USERNAME }}
-          cf_password: ${{ secrets.CF_PASSWORD }}
+          API:      ${{ secrets.CF_API }}
+          ORG:      ${{ secrets.CF_ORG }}
+          SPACE:    ${{ secrets.CF_SPACE }}
+          USERNAME: ${{ secrets.CF_USERNAME }}
+          PASSWORD: ${{ secrets.CF_PASSWORD }}
 #          manifest: manifest.yml
           command: target
+          validate: false
