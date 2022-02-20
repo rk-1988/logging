@@ -2,6 +2,6 @@ applications:
   - name: logging
     memory: 32M
     buildpacks:
-      - staticapi_buildpack
+      - logging
     random-route: true
    
