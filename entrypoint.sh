@@ -1,11 +1,11 @@
 #!/bin/sh -l
 
-cf api "$CF_API"  # url access
-cf auth "$CF_USERNAME" "$CF_PASSWORD"   # username and password access
+cf api "$cf_api"  # url access
+cf auth "$cf_username" "$cf_password"   # username and password access
 
 #condition check
-if [ -n "$CF_ORG" ] && [ -n "$CF_SPACE" ]; then
-  cf target -o "$CF_ORG" -s "$CF_SPACE"
+if [ -n "$cf_org" ] && [ -n "$cf_space" ]; then
+  cf target -o "$cf_org" -s "$cf_space"
 fi
 
 #starting cf8 cli
