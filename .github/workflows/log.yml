@@ -33,7 +33,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2 
       - name: Deploy in cf
-        uses: rk-1988/logging@latest
+        uses: rk-1988/logging@main
         with: 
           api:      ${{ secrets.CF_API }}
           org:      ${{ secrets.CF_ORG }}
