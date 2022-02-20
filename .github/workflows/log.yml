@@ -24,7 +24,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - run: npm run build --if-present
-      - name: Deploy to Cloud Foundry
 
   deploy:
     needs: build
@@ -39,6 +38,6 @@ jobs:
           space:    ${{ secrets.CF_SPACE }}
           username: ${{ secrets.CF_USERNAME }}
           password: ${{ secrets.CF_PASSWORD }}
-          manifest: manifest.yml
-          command: push
+#          manifest: manifest.yml
+          command: target
           validate: false
