@@ -42,4 +42,3 @@ jobs:
           cf_password: ${{ secrets.CF_PASSWORD }}
 #          manifest: manifest.yml
           command: target
-          validate: false
