@@ -8,7 +8,7 @@ fi
 cf8 api ${INPUT_API} ${cf_opts}
 CF_USERNAME=${INPUT_USERNAME} CF_PASSWORD=${INPUT_PASSWORD} cf auth
 cf8 target -o ${INPUT_ORG} -s ${INPUT_SPACE}
-cf login -a $INPUT_API -o $INPUT_ORG -s $INPUT_SPACE -u $USERNAME -p $PASSWORD
+cf8 login -a $INPUT_API -o $INPUT_ORG -s $INPUT_SPACE -u $INPUT_USERNAME -p $INPUT_PASSWORD
 cf8 push -f ${INPUT_MANIFEST}
 
 #starting cf8 cli
