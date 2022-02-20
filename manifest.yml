@@ -4,6 +4,4 @@ applications:
     buildpacks:
       - staticapi_buildpack
     random-route: true
-    
-    #starting cf8 cli
-    sh -c "cf8 $*"   
+   
