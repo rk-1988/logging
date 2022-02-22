@@ -22,6 +22,21 @@ inputs:
   COMMAND:
     description: "Command to run using CF CLI"
     required: true
+  validate:
+    description: Whether or not to validate the CF API's TLS certificate
+    required: false
+    default: true
+  debug:
+    description: Debug your deploy dir to list all folders
+    required: false
+    default: false
+  command:
+    description: "Command to run using CF CLI"
+    required: true  
+  manifest:
+    description: The path to your CF application manifest
+    required: true
+    
 runs:
   using: "docker"
   image: Dockerfile
