@@ -4,7 +4,7 @@ branding:
   icon: "upload-cloud"
   color: "blue"
 inputs:
-  CF_API:
+  API:
     description: "Target API Endpoint of Cloud Foundry"
     required: true
   USERNAME:
