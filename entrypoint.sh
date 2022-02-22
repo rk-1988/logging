@@ -1,35 +1,11 @@
+
 #!/bin/sh -l
 
-set -eu
-cf_opts=
-if [ "x${INPUT_VALIDATE}" = "xfalse" ]; then
-  cf_opts="--skip-ssl-validation"
+cf api "$INPUT_CF_API"
+cf auth "$INPUT_USERNAME" "$INPUT_PASSWORD"
+
+if [ -n "$INPUT_ORG" ] && [ -n "$INPUT_SPACE" ]; then
+  cf target -o "$INPUT_ORG" -s "$INPUT_SPACE"
 fi
-cf8 api ${INPUT_API} ${cf_opts}
-CF_USERNAME=${INPUT_USERNAME} CF_PASSWORD=${INPUT_PASSWORD} cf auth
-cf8 target -o ${INPUT_ORG} -s ${INPUT_SPACE}
-cf8 login -a $INPUT_API -o $INPUT_ORG -s $INPUT_SPACE -u $INPUT_USERNAME -p $INPUT_PASSWORD
-cf8 push -f ${INPUT_MANIFEST}
 
-#starting cf8 cli
-sh -c "cf8 $*"   
-
-
-
-
-
-
-
-
-
-
-#cf api "$cf_api"  # url access
-#cf auth "$cf_username" "$cf_password"   # username and password access
-
-#condition check
-#if [ -n "$cf_org" ] && [ -n "$cf_space" ]; then
-#  cf target -o "$cf_org" -s "$cf_space"
-#fi
-
-#starting cf8 cli
-#sh -c "cf8 $*"   
+sh -c "cf $*"
