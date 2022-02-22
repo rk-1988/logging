@@ -1,4 +1,3 @@
-
 #!/bin/sh -l
 
 cf8 api "$INPUT_API"
