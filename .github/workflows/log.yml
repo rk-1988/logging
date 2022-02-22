@@ -41,5 +41,5 @@ jobs:
           USERNAME: ${{ secrets.CF_USERNAME }}
           PASSWORD: ${{ secrets.CF_PASSWORD }}
           MANIFEST: manifest.yml
-          COMMAND: target
+          COMMAND: push -f manifest.yml
           VALIDATE: false
