@@ -1,11 +1,11 @@
 
 #!/bin/sh -l
 
-cf api "$INPUT_CF_API"
-cf auth "$INPUT_USERNAME" "$INPUT_PASSWORD"
+cf8 api "$INPUT_API"
+cf8 auth "$INPUT_USERNAME" "$INPUT_PASSWORD"
 
 if [ -n "$INPUT_ORG" ] && [ -n "$INPUT_SPACE" ]; then
-  cf target -o "$INPUT_ORG" -s "$INPUT_SPACE"
+  cf8 target -o "$INPUT_ORG" -s "$INPUT_SPACE"
 fi
 
-sh -c "cf $*"
+sh -c "cf8 $*"
