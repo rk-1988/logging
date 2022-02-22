@@ -1,64 +1,29 @@
-name: "CF CLI Action"
-description: "Deploy and manage Cloud Foundry using the cf cli"
-
+name: "Cloud Foundry CLI GitHub Action"
+description: "Run arbitrary commands using the CF CLI on GitHub Actions"
+branding:
+  icon: "upload-cloud"
+  color: "blue"
 inputs:
-  manifest:
-    description: The path to your CF application manifest
-    required: true
-  appdir:
-    description: Set this parameter if you want to switch the working dir to push an app
-    required: true
-  API:
-    description: The Cloud Foundry API endpoint
+  CF_API:
+    description: "Target API Endpoint of Cloud Foundry"
     required: true
   USERNAME:
-    description: Your Cloud Foundry authentication username (or email address)
+    description: "Username for API authentication"
     required: true
   PASSWORD:
-    description: Your Cloud Foundry authentication password
+    description: "Password for API authentication"
     required: true
   ORG:
-    description: The name of the Cloud Foundry organization in which to deploy
-    required: true
+    description: "Target Organization"
+    required: false
   SPACE:
-    description: The name of the Cloud Foundry space in which to deploy
-    required: true
-  validate:
-    description: Whether or not to validate the CF API's TLS certificate
+    description: "Target Space"
     required: false
-    default: true
-  debug:
-    description: Debug your deploy dir to list all folders
-    required: false
-    default: false
-  command:
+  COMMAND:
     description: "Command to run using CF CLI"
     required: true
-
-
-
-
-#inputs:
- # cf_api:
-  #  description: "Target API Endpoint of Cloud Foundry"
-   # required: true
-  #cf_username:
-   # description: "Username for API authentication"
-    #required: true
-  #cf_password:
-   # description: "Password for API authentication"
-    #required: true
-  #cf_org:
-   # description: "Target Organization"
-   # required: false
- # cf_space:
-  #  description: "Target Space"
-   # required: false
-  #command:
-   # description: "Command to run using CF CLI"
-    #required: true
 runs:
   using: "docker"
-  image: "Dockerfile"
+  image: "docker://ellpope/cloudfoundry-cli-action:v7"
   args:
     - ${{ inputs.command }}
