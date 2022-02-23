@@ -1,7 +1,5 @@
 applications:
   - name: logging
     memory: 32M
-    buildpacks:
-      - logging
     random-route: true
    
